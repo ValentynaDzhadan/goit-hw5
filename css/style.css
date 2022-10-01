@@ -44,7 +44,7 @@ ol {
 
 .btn {
     cursor: pointer;
-    border: 1px solid transparent;
+    border: none;
 }
 
 body {
@@ -101,7 +101,7 @@ body {
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.02em;
-    padding: 32px 0;
+    padding: 24px 0;
     border-bottom: 1px solid #ECECEC;
 }
 
@@ -226,6 +226,7 @@ body {
     font-weight: 700;
     font-size: 16px;
     line-height: 1.88;
+    letter-spacing: 0.06em;
     background-color: #188CE8;
     color: #ffffff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
@@ -414,6 +415,7 @@ body {
     font-weight: 500;
     font-size: 16px;
     line-height: 1.62;
+    letter-spacing: 0.03em;
     background-color: #F5F4FA;
     border-radius: 4px;
 }
