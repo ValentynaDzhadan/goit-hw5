@@ -51,6 +51,7 @@ body {
     background-color: white;
     color: var(--primary-text-color);
     font-family: var(--primary-font);
+    font-weight: 400;
     font-style: normal;
     letter-spacing: 0.03em;
 }
@@ -140,7 +141,20 @@ body {
 }
 
 .current{
+    position: relative;
     color: var(--accent-color);
+}
+
+.current::after{
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: -5%;
+    width: 110%;
+    border: 2px solid var(--accent-color);
+    border-radius: 2px;
+    background: var(--accent-color);
+    margin-top: 30px;
 }
 
 /* email */
@@ -241,6 +255,72 @@ body {
 /* ==================== /HERO ==================== */
 
 
+
+/* ==================== BACKDROP ==================== */
+.backdrop.is-hidden{
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 528px;
+    min-height: 581px;
+    background-color: #fff;
+    padding: 40px;
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 0;
+    transition: border-color var(--transition-dur-and-func);
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+    border-color: var(--accent-color);
+}
+
+.modal-close-btn-icon {
+    fill: #303030;
+    transition: fill var(--transition-dur-and-func);
+}
+
+.modal-close-btn:hover .modal-close-btn-icon,
+.modal-close-btn:focus .modal-close-btn-icon {
+    fill: var(--accent-color);
+}
+
+/* ==================== /BACKDROP ==================== */
+
+
+
 /* ==================== FEATURE ==================== */
 .feature-list{
     display: flex;
@@ -270,7 +350,6 @@ body {
 }
 
 .feature-text{
-    font-weight: 400;
     font-size: 14px;
     line-height: 1.71;
     color: var(--desc-text-color);
@@ -292,6 +371,28 @@ body {
 .field-item {
     flex-basis: calc((100% - 60px) / 3);
 }
+.field-thumb{
+    position: relative;
+}
+
+
+.field-img-title{
+    position: absolute;
+    top: 88%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.14;
+    text-align: center;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    background: rgba(47, 48, 58, 0.8);
+    padding: 27px 0;
+}
+
 /* ==================== /FIELD ==================== */
 
 
@@ -328,7 +429,6 @@ body {
 }
 
 .staff-position{
-    font-weight: 400;
     color: var(--desc-text-color);
     margin-bottom: 16px;
 }
@@ -465,10 +565,47 @@ body {
 
 .project-text {
     font-style: normal;
-    font-weight: 400;
     font-size: 16px;
     line-height: 1.88;
     color: var(--desc-text-color);
+}
+
+.project-thumb {
+    position: relative;
+}
+
+.project-thumb::before {
+    display: inline-block;
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: rgba(33, 150, 243, 0.9);
+    opacity: 0;
+}
+
+.project-thumb-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: 500ms opacity linear;
+    font-size: 18px;
+    line-height: 1.56;
+    letter-spacing: 0.03em;
+    color: #FFFFFF;
+    padding: 63px 24px;
+}
+
+.project-item:hover .project-thumb::before {
+    opacity: 1;
+}
+
+.project-item:hover .project-thumb-text {
+    opacity: 1;
 }
 /* ==================== /PORTFOLIO ==================== */
 
@@ -488,7 +625,6 @@ body {
 
 .contact-item {
     font-style: normal;
-    font-weight: 400;
     font-size: 14px;
     line-height: 1.71;
     margin-bottom: 9px;
